@@ -26,24 +26,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonZero = (Button) findViewById(R.id.buttonZero);
-        buttonOne = (Button) findViewById(R.id.buttonOne);
-        buttonTwo = (Button) findViewById(R.id.buttonTwo);
-        buttonThree = (Button) findViewById(R.id.buttonThree);
-        buttonFour = (Button) findViewById(R.id.buttonFour);
-        buttonFive = (Button) findViewById(R.id.buttonFive);
-        buttonSix = (Button) findViewById(R.id.buttonSix);
-        buttonSeven = (Button) findViewById(R.id.Seven);
-        buttonEight = (Button) findViewById(R.id.buttonEight);
-        buttonNine = (Button) findViewById(R.id.buttonNine);
-        buttonDecimal = (Button) findViewById(R.id.buttonDecimal);
-        buttonAdd = (Button) findViewById(R.id.buttonAdd);
-        buttonSubtract = (Button) findViewById(R.id.buttonSubtract);
-        buttonDivide = (Button) findViewById(R.id.buttonDivide);
-        buttonMultiply = (Button) findViewById(R.id.buttonMultiply);
-        buttonClear = (Button) findViewById(R.id.buttonC);
-        buttonEqual = (Button) findViewById(R.id.buttonEqual);
-        editText = (EditText) findViewById(R.id.editText);
+        buttonZero = findViewById(R.id.buttonZero);
+        buttonOne = findViewById(R.id.buttonOne);
+        buttonTwo = findViewById(R.id.buttonTwo);
+        buttonThree = findViewById(R.id.buttonThree);
+        buttonFour = findViewById(R.id.buttonFour);
+        buttonFive = findViewById(R.id.buttonFive);
+        buttonSix = findViewById(R.id.buttonSix);
+        buttonSeven = findViewById(R.id.buttonSeven);
+        buttonEight = findViewById(R.id.buttonEight);
+        buttonNine = findViewById(R.id.buttonNine);
+        buttonDecimal = findViewById(R.id.buttonDecimal);
+        buttonAdd = findViewById(R.id.buttonAdd);
+        buttonSubtract = findViewById(R.id.buttonSubtract);
+        buttonDivide = findViewById(R.id.buttonDivide);
+        buttonMultiply = findViewById(R.id.buttonMultiply);
+        buttonClear = findViewById(R.id.buttonClear);
+        buttonEqual = findViewById(R.id.buttonEqual);
+        editText = findViewById(R.id.text);
 
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
