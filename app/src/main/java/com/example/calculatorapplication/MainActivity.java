@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
+import android.speech.tts.TextToSpeech;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonZero, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix,
             buttonSeven, buttonEight, buttonNine, buttonAdd, buttonSubtract, buttonDivide,
-            buttonMultiply, buttonDecimal, buttonClear, buttonEqual;
+            buttonMultiply, buttonDecimal, buttonClear, buttonEqual, buttonSpeak;
     EditText editText;
 
     float valueOne;
@@ -19,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     boolean subtract;
     boolean multiplication;
     boolean division;
+
+    private TextToSpeech textToSpeech;
 
 
     @Override
@@ -43,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         buttonMultiply = findViewById(R.id.buttonMultiply);
         buttonClear = findViewById(R.id.buttonClear);
         buttonEqual = findViewById(R.id.buttonEqual);
-        editText = findViewById(R.id.text);
+        editText = findViewById(R.id.edt1);
+        buttonSpeak = findViewById(R.id.buttonSpeak);
 
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonTwo.setOnClickListener(new View.OnClickListener() {
+        buttonNine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editText.setText(editText.getText() + "9");
@@ -131,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
         buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    valueOne = Float.parseFloat(editText.getText() + "");
-                    subtract = true;
-                    editText.setText(null);
+                valueOne = Float.parseFloat(editText.getText() + "");
+                subtract = true;
+                editText.setText(null);
             }
         });
 
@@ -158,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                valueOne = Float.parseFloat(editText.getText() + "");
+                valueTwo = Float.parseFloat(editText.getText() + "");
                 if (addition) {
                     editText.setText(valueOne + valueTwo + "");
                     addition = false;
@@ -191,5 +197,23 @@ public class MainActivity extends AppCompatActivity {
                 editText.setText(editText.getText() + ".");
             }
         });
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
+        buttonSpeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak();
+            }
+        });
+    }
+    private void speak() {
+        String text = editText.getText().toString();
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 }
