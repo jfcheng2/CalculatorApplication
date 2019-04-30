@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 editText.setText(editText.getText() + ".");
             }
         });
+
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -205,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
